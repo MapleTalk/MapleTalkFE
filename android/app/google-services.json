@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1063120008416",
+    "project_id": "mapletalk-c0c99",
+    "storage_bucket": "mapletalk-c0c99.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1063120008416:android:0881f1d1750a1bef6c4c85",
+        "android_client_info": {
+          "package_name": "com.maple.talk"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9wERmiB9dDYafkDRS7Msfcdl08pjFxjA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
