@@ -4,7 +4,7 @@ import {
   GoogleSigninButton,
 } from '@react-native-google-signin/google-signin';
 import {GOOGLE_WEB_CLIENT_ID} from '@env';
-
+import Api from './Api';
 
 const App = () => {
   useEffect(() => {
@@ -17,8 +17,10 @@ const App = () => {
   const signIn = async () => {
     try {
       await GoogleSignin.hasPlayServices();
+      console.log("CLICKED");
       const userInfo = await GoogleSignin.signIn();
       console.log(userInfo);
+      Api.googleLogin(userInfo.user);
     } catch (error) {
       console.error(error);
     }
