@@ -1,36 +1,38 @@
-import React, { useState } from 'react';
-import { Button, TextInput, View } from 'react-native';
-import auth from '@react-native-firebase/auth';
+import React, {useEffect} from 'react';
+import {
+  GoogleSignin,
+  GoogleSigninButton,
+} from '@react-native-google-signin/google-signin';
+import {GOOGLE_WEB_CLIENT_ID} from '@env';
 
-const SignInScreen = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+
+const App = () => {
+  useEffect(() => {
+    GoogleSignin.configure({
+      webClientId: GOOGLE_WEB_CLIENT_ID,
+      offlineAccess: true,
+    });
+  }, []);
 
   const signIn = async () => {
     try {
-      await auth().signInWithEmailAndPassword(email, password);
-      console.log('User signed in successfully!');
+      await GoogleSignin.hasPlayServices();
+      const userInfo = await GoogleSignin.signIn();
+      console.log(userInfo);
     } catch (error) {
       console.error(error);
     }
   };
 
   return (
-    <View>
-      <TextInput
-        placeholder="Email"
-        value={email}
-        onChangeText={text => setEmail(text)}
-      />
-      <TextInput
-        placeholder="Password"
-        value={password}
-        onChangeText={text => setPassword(text)}
-        secureTextEntry
-      />
-      <Button title="Sign In" onPress={signIn} />
-    </View>
+    <GoogleSigninButton
+      style={{width: 192, height: 48}}
+      size={GoogleSigninButton.Size.Wide}
+      color={GoogleSigninButton.Color.Dark}
+      onPress={signIn}
+      disabled={false}
+    />
   );
 };
 
-export default SignInScreen;
+export default App;
