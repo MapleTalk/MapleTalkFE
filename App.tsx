@@ -5,6 +5,7 @@ import {
 } from '@react-native-google-signin/google-signin';
 import {GOOGLE_WEB_CLIENT_ID} from '@env';
 import Api from './Api';
+import TitleView from './layout/TitleView';
 
 const App = () => {
   useEffect(() => {
@@ -26,7 +27,8 @@ const App = () => {
     }
   };
 
-  return (
+  return <TitleView />;
+  /*(
     <GoogleSigninButton
       style={{width: 192, height: 48}}
       size={GoogleSigninButton.Size.Wide}
@@ -35,6 +37,7 @@ const App = () => {
       disabled={false}
     />
   );
+  */
 };
 
 export default App;
