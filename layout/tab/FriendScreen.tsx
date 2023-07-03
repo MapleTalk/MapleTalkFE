@@ -41,6 +41,8 @@ function FriendCard({id, name, status, userInfo}) {
 }
 
 function Profile({userInfo}) {
+  // userInfo 가 아닌데?
+  console.log("userInfo", userInfo);
   return (
     <View style={styles.profileContainer}>
       <Image source={require('./w2.png')} style={styles.avatar} />

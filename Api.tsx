@@ -10,7 +10,7 @@ const apiClient = axios.create({
 
 const registerUser = async user => {
   try {
-    const response = await apiClient.post('/api/register', user); // Add /api here
+    const response = await apiClient.post('/api/users/register', user); // Add /api here
     return response.data;
   } catch (error) {
     console.error('Error registering user:', error);
@@ -30,11 +30,11 @@ const getUsers = async () => {
 
 const checkUser = async id => {
   try {
-    const response = await apiClient.get(`/api/checkUser/${id}`); // Add /api here
-    return response.data;
+    const response = await apiClient.get(`/api/users/checkUser/${id}`); // Add /api here
+    return response.data.success;
   } catch (error) {
     console.error('Error checking user:', error);
-    return null;
+    return false;
   }
 };
 

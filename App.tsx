@@ -32,7 +32,6 @@ const MainApp = () => {
     try {
       await GoogleSignin.hasPlayServices();
       const {user} = await GoogleSignin.signIn();
-
       if (await Api.checkUser(user.id)) {
         console.log('유저가 있음');
       } else {
